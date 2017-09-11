@@ -110,6 +110,7 @@ public class ESController {
 			if (client.index(Common.ELASTIC_INDEX).isExists()) {
 				return;
 			}
+			log.info("No index found in Elastic. Creating a new index");
 
 			// We are reading the mapping from external file and not using the
 			// Java API since it seems that it is not possible to do a dynamic
@@ -128,7 +129,8 @@ public class ESController {
 				log.error("Failed to read mapping file. No index mapping will be set to the Elasticsearch", e);
 				return;
 			}
-
+			log.debug("About to create index with the following mapping");
+			log.debug(settings);
 			client.index(Common.ELASTIC_INDEX).create(settings);
 
 		} catch (IOException e) {

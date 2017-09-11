@@ -9,32 +9,25 @@
 		"test": {
 			"properties": {
 				"name": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"uid": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"parent": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"status": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"url": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"description": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"execution": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"executionId": {
 					"type": "long"
@@ -43,8 +36,7 @@
 					"type": "long"
 				},
 				"machine": {
-					"type": "string",
-					"index": "not_analyzed"
+					"type": "keyword"
 				},
 				"timestamp": {
 					"type": "date",
@@ -62,40 +54,36 @@
 				{
 					"long_prop": {
 						"match": "long_*",
-						"match_mapping_type": "string",
+						"match_mapping_type": "keyword",
 						"mapping": {
-							"type": "long",
-							"index": "not_analyzed"
+							"type": "long"
 						}
 					}
 				},
 				{
 					"int_prop": {
 						"match": "int_*",
-						"match_mapping_type": "string",
+						"match_mapping_type": "keyword",
 						"mapping": {
-							"type": "integer",
-							"index": "not_analyzed"
+							"type": "integer"
 						}
 					}
 				},
 				{
 					"double_prop": {
 						"match": "double_*",
-						"match_mapping_type": "string",
+						"match_mapping_type": "keyword",
 						"mapping": {
-							"type": "double",
-							"index": "not_analyzed"
+							"type": "double"
 						}
 					}
 				},
 				{
 					"date_prop": {
 						"match": "date_*",
-						"match_mapping_type": "string",
+						"match_mapping_type": "keyword",
 						"mapping": {
 							"type": "date",
-							"index": "not_analyzed",
 							"format": "yyyy/MM/dd HH:mm:ss"
 						}
 					}
@@ -104,10 +92,9 @@
 					"notanalyzed": {
 						"match": "*",
 						"unmatch": "^(long_|int_|double_|date_)$",
-						"match_mapping_type": "string",
+						"match_mapping_type": "keyword",
 						"mapping": {
-							"type": "string",
-							"index": "not_analyzed"
+							"type": "keyword"
 						}
 					}
 				}
